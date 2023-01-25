@@ -1,3 +1,19 @@
 # DarkClient
-A modified Meteor Client.
-By Sheesha, Eugaming, Nxy, and Paraph
+
+:A modified Meteor client
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:By Sheesha, Eugaming, Nxy, and Paraph
