@@ -1,19 +1,13 @@
 # DarkClient
+A modified Meteor client for Hacking.
 
-:A modified Meteor client
+## Features
 
-
-
-
-
-
-
+1. 10+ Modules
+3. Open source
+5. Active development
 
 
 
-
-
-
-
-
-:By Sheesha, Eugaming, Nxy, and Paraph
+### credits
+By Sheesha, Eugaming, Nxy, and Paraph
