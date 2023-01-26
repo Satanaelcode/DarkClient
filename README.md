@@ -1,6 +1,10 @@
 # DarkClient
 A modified Meteor client for Hacking.
-<img alt="AUR last modified" src="https://img.shields.io/aur/last-modified/https://github.com/Satanaelcode/DarkClient?style=flat-square">
+<ls>
+
+  <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/SatanaelCode/DarkClient?color=black"> <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/SatanaelCode/DarkClient?color=black&label=Developers">
+
+</ls>
 ## Features
 
 1. 10+ Modules
