@@ -18,40 +18,40 @@ import meteordevelopment.meteorclient.settings.EnumSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
 import meteordevelopment.meteorclient.systems.friends.Friends;
+import meteordevelopment.meteorclient.systems.modules.Categories;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.utils.entity.SortPriority;
 import meteordevelopment.meteorclient.utils.entity.TargetUtils;
 import meteordevelopment.meteorclient.utils.player.PlayerUtils;
 import meteordevelopment.meteorclient.utils.render.color.Color;
 import meteordevelopment.orbit.EventHandler;
-import net.minecraft.class_1297;
-import net.minecraft.class_1299;
-import net.minecraft.class_1309;
-import net.minecraft.class_1657;
-import net.minecraft.class_243;
-import net.minecraft.class_2596;
-import net.minecraft.class_2828;
-import net.minecraft.class_310;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
+import net.minecraft.util.math.Vec3d;
 
 public class InfAura extends Module {
     private final SettingGroup sgGeneral = this.settings.getDefaultGroup();
 
     private final Setting<SortPriority> priority = this.sgGeneral.add((Setting)((EnumSetting.Builder)((EnumSetting.Builder)((EnumSetting.Builder)(new EnumSetting.Builder())
-            .name("priority"))
-            .description("How to filter targets within range."))
-            .defaultValue(SortPriority.LowestHealth))
-            .build());
+        .name("priority"))
+        .description("How to filter targets within range."))
+        .defaultValue(SortPriority.LowestHealth))
+        .build());
 
-    private final Setting<Object2BooleanMap<class_1299<?>>> entities = this.sgGeneral.add((Setting)((EntityTypeListSetting.Builder)((EntityTypeListSetting.Builder)(new EntityTypeListSetting.Builder())
-            .name("entities"))
-            .description("Entities to attack."))
-            .onlyAttackable()
-            .build());
+    private final Setting<Object2BooleanMap<EntityType<?>>> entities = this.sgGeneral.add((Setting)((EntityTypeListSetting.Builder)((EntityTypeListSetting.Builder)(new EntityTypeListSetting.Builder())
+        .name("entities"))
+        .description("Entities to attack."))
+        .onlyAttackable()
+        .build());
 
-    public HashMap<class_243, class_243> positions;
+    public HashMap<Vec3d, Vec3d> positions;
 
     public InfAura() {
-        super(Categories.Dark, "inf-aura", "Destroy Your Enemies with this Module, Its Basically KillAura but with inf reach!");
+        super(Categories.Dark, "inf-aura", "xd");
         this.positions = new HashMap<>();
     }
 
@@ -59,45 +59,45 @@ public class InfAura extends Module {
 
     @EventHandler
     public void onTick(TickEvent.Pre e) {
-        if (this.mc.field_1724 == null || this.mc.field_1687 == null || this.mc.field_1761 == null)
+        if (this.mc.player == null || this.mc.world == null || this.mc.interactionManager == null)
             return;
-        if (this.mc.field_1724.method_7261(0.0F) < 1.0F)
+        if (this.mc.player.getAttackCooldownProgress(0.0F) < 1.0F)
             return;
         this.positions.clear();
-        List<class_1297> targets = new ArrayList<>();
+        List<Entity> targets = new ArrayList<>();
         TargetUtils.getList(targets, this::entityCheck, (SortPriority)this.priority.get(), 1);
-        Optional<class_1297> entity = Optional.empty();
+        Optional<Entity> entity = Optional.empty();
         if (targets.size() > 0)
             entity = Optional.of(targets.get(0));
-        class_243 op = this.mc.field_1724.method_19538();
+        Vec3d op = this.mc.player.getPos();
         if (entity.isPresent()) {
-            class_243 playerPos = this.mc.field_1724.method_19538();
-            teleportFromTo(this.mc, playerPos, ((class_1297)entity.get()).method_19538());
-            this.mc.field_1761.method_2918((class_1657)this.mc.field_1724, entity.get());
-            teleportFromTo(this.mc, ((class_1297)entity.get()).method_19538(), playerPos);
-            this.mc.field_1724.method_33574(playerPos);
-            while (op != this.mc.field_1724.method_19538())
-                teleportFromTo(this.mc, this.mc.field_1724.method_19538(), op);
+            Vec3d playerPos = this.mc.player.getPos();
+            teleportFromTo(this.mc, playerPos, ((Entity)entity.get()).getPos());
+            this.mc.interactionManager.attackEntity((PlayerEntity) this.mc.player, entity.get());
+            teleportFromTo(this.mc, ((Entity)entity.get()).getPos(), playerPos);
+            this.mc.player.setPosition(playerPos);
+            while (op != this.mc.player.getPos())
+                teleportFromTo(this.mc, this.mc.player.getPos(), op);
         }
     }
 
     @EventHandler
     public void onRender3D(Render3DEvent e) {
-        for (Map.Entry<class_243, class_243> entry : this.positions.entrySet())
-            e.renderer.line(((class_243)entry.getKey()).field_1352, ((class_243)entry.getKey()).field_1351, ((class_243)entry.getKey()).field_1350, ((class_243)entry.getValue()).field_1352, ((class_243)entry.getValue()).field_1351, ((class_243)entry.getValue()).field_1350, Color.WHITE);
+        for (Map.Entry<Vec3d, Vec3d> entry : this.positions.entrySet())
+            e.renderer.line(((Vec3d)entry.getKey()).x, ((Vec3d)entry.getKey()).y, ((Vec3d)entry.getKey()).z, ((Vec3d)entry.getValue()).x, ((Vec3d)entry.getValue()).y, ((Vec3d)entry.getValue()).z, Color.WHITE);
     }
 
-    private void teleportFromTo(class_310 mc, class_243 fromPos, class_243 toPos) {
-        if (mc.field_1724 == null)
+    private void teleportFromTo(MinecraftClient mc, Vec3d fromPos, Vec3d toPos) {
+        if (mc.player == null)
             return;
         double distancePerBlock = 8.5D;
-        double targetDistance = Math.ceil(fromPos.method_1022(toPos) / distancePerBlock);
-        class_243 prevPos = fromPos;
+        double targetDistance = Math.ceil(fromPos.distanceTo(toPos) / distancePerBlock);
+        Vec3d prevPos = fromPos;
         for (int i = 1; i <= targetDistance; i++) {
-            class_243 tempPos = fromPos.method_35590(toPos, i / targetDistance);
+            Vec3d tempPos = fromPos.lerp(toPos, i / targetDistance);
             this.positions.put(prevPos, tempPos);
             prevPos = tempPos;
-            mc.field_1724.field_3944.method_2883((class_2596)new class_2828.class_2829(tempPos.field_1352, tempPos.field_1351, tempPos.field_1350, true));
+            mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(tempPos.x, tempPos.y, tempPos.z, true));
             if (i % 4 == 0)
                 try {
                     Thread.sleep(0L);
@@ -105,18 +105,18 @@ public class InfAura extends Module {
         }
     }
 
-    public boolean entityCheck(class_1297 entity) {
-        if (entity.equals(this.mc.field_1724) || entity.equals(this.mc.field_1719))
+    public boolean entityCheck(Entity entity) {
+        if (entity.equals(this.mc.player) || entity.equals(this.mc.cameraEntity))
             return false;
-        if ((entity instanceof class_1309 && ((class_1309)entity).method_29504()) || !entity.method_5805())
+        if ((entity instanceof LivingEntity && ((LivingEntity)entity).isDead()) || !entity.isAlive())
             return false;
-        if (!((Object2BooleanMap)this.entities.get()).getBoolean(entity.method_5864()))
+        if (!((Object2BooleanMap)this.entities.get()).getBoolean(entity.getType()))
             return false;
         if (!PlayerUtils.isWithin(entity, 150.0D))
             return false;
-        if (entity instanceof class_1657) {
-            class_1657 player = (class_1657)entity;
-            if (player.method_7337())
+        if (entity instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) entity;
+            if (player.isCreative())
                 return false;
             if (!Friends.get().shouldAttack(player))
                 return false;
