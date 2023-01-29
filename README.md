@@ -6,7 +6,21 @@
 <h1 align="center">Dark Client</h1>
 
 ## Installation
+**- Install The .jar**
 
+**- Download Fabric Loader From https://fabricmc.net**
+
+**- Run 1.19.3 Vanilla**
+
+**- Run the Fabric Loader and Pick Version 1.19.3 (Default)**
+
+**- Click Win + R and put %appdata% in the text box**
+
+**- Navigate to the ".minecraft" folder then "mods"**
+
+**- Add the .jar to the mods folder and Run Minecraft 1.19.3 Fabric**
+
+    **Your Done Now The Client Should be working as expected! If Not Please Join this discord ( https://discord.gg/8JtwkTPnRE ) and we will be happy to help!**
 ## Setup
 
 For instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
