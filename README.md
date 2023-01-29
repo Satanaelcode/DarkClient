@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="https://cdn.discordapp.com/icons/1063226592274419852/54eb3bd141716b6fa08f544184050cec.png?size=4096" width="20%"/>
+<img src="https://cdn.discordapp.com/attachments/1068644852532781056/1069331476186927194/updated-modified.png?size=4096" width="20%"/>
 </p>
 
 <h1 align="center">Dark Client</h1>
