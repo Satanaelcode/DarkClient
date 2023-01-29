@@ -124,5 +124,3 @@ public class InfAura extends Module {
         return true;
     }
 }
-
-
