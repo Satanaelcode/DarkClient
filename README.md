@@ -5,6 +5,10 @@
 
 <h1 align="center">Dark Client</h1>
 
+<div style="display: grid; place-items: center;">
+    <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/SatanaelCode/DarkClient?color=black"> <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/SatanaelCode/DarkClient?color=black&label=Developers">
+
+</div>
 
 ## Installation:
 
