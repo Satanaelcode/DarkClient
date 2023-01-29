@@ -1,10 +1,9 @@
 
 <p align="center">
-<img src="https://cdn.discordapp.com/icons/1063226592274419852/54eb3bd141716b6fa08f544184050cec-modified.png?size=4096" width="20%"/>
+<img src="https://cdn.discordapp.com/icons/1063226592274419852/54eb3bd141716b6fa08f544184050cec.png?size=4096" width="20%"/>
 </p>
 
 <h1 align="center">Dark Client</h1>
-
 
 ## Installation
 
