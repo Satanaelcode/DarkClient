@@ -10,7 +10,7 @@
 
 </div>
 
-## Installation:
+## Installation (FROM THE DISCORD):
 
 **- Install The .jar**
 
