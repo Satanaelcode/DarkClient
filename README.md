@@ -33,7 +33,7 @@ For instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tut
 
 ## Info
 
-Fabric Utility Mod.
+Fabric _~~Utility Mod.~~_ Hack Client.
 
 ## Disclaimer
 
