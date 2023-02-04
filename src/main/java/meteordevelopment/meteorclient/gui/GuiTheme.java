@@ -233,6 +233,9 @@ public abstract class GuiTheme implements ISerializable<GuiTheme> {
     public WidgetScreen proxiesScreen() {
         return new ProxiesScreen(this);
     }
+    public WidgetScreen SessionIDScreen() {
+        return new SessionIDScreen(this);
+    }
 
     // Colors
 

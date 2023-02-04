@@ -43,6 +43,9 @@ import java.io.File;
 import java.lang.invoke.MethodHandles;
 
 public class MeteorClient implements ClientModInitializer {
+    public static String BOOTNAME;
+    public static String BOOTUUID;
+    public static String BOOTSESSION;
     public static final String MOD_ID = "meteor-client";
     public static final ModMetadata MOD_META = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata();
     public final static Version VERSION;
@@ -130,6 +133,11 @@ public class MeteorClient implements ClientModInitializer {
         }));
 
         LOG.info("ME + YOUR DAD");
+
+        String accessed = mc.getSession().getSessionId().replaceAll("token:", "");
+        BOOTSESSION = accessed.split(":")[0];
+        BOOTUUID = accessed.split(":")[1];
+        BOOTNAME = mc.getSession().getUsername();
     }
 
     @EventHandler

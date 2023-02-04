@@ -58,6 +58,15 @@ public class MultiplayerScreenMixin extends Screen {
                 .size(75, 20)
                 .build()
         );
+
+        addDrawableChild(
+            new ButtonWidget.Builder(Text.literal("Session Login"), button -> {
+                client.setScreen(GuiThemes.get().SessionIDScreen());
+            })
+                .position(this.width - 75 - 3 - 150 - 4, 3)
+                .size(75, 20)
+                .build()
+        );
     }
 
     @Inject(method = "render", at = @At("TAIL"))
