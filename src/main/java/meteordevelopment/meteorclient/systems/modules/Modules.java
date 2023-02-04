@@ -591,6 +591,7 @@ public class Modules extends System<Modules> {
         add(new InfAura());
         add(new NotifierPlus());
         add(new NoClearChat());
+        add(new SoundLocator());
     }
 
     public static class ModuleRegistry extends SimpleRegistry<Module> {
