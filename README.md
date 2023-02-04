@@ -37,7 +37,7 @@ For instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tut
 ### Install Dev build
 Build the Jar from Source directly
 
-**WARNING**: Dev builds a instable.
+**WARNING**: Dev builds a unstable.
 ## Info
 
 Fabric _~~Utility Mod.~~_ Hack Client.
