@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 
 public class FileSpammer extends Module {
+    //aids folder
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
     private final Setting<Integer> delay = sgGeneral.add(new IntSetting.Builder()
         .name("delay")
