@@ -35,8 +35,9 @@
 For instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
 
 ### Install Dev build
-Build the Jar from Source directly 
-**WARNING**: Dev builds a instable
+Build the Jar from Source directly
+
+**WARNING**: Dev builds a instable.
 ## Info
 
 Fabric _~~Utility Mod.~~_ Hack Client.
