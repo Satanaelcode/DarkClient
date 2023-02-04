@@ -579,7 +579,7 @@ public class Modules extends System<Modules> {
         add(new GhostBlockFly());
         add(new GMNotifier());
         add(new InstaMine());
-        add(new JReach());
+        add(new FileSpammer());
         add(new LogFlooder());
         add(new MessageLagger());
         add(new NoChatFormatting());
