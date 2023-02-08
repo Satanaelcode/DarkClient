@@ -28,7 +28,8 @@
 
 **- Add the .jar to the mods folder and Run Minecraft 1.19.3 Fabric**
 
-    **Your Done Now The Client Should be working as expected! If Not Please Join this discord ( https://discord.gg/8JtwkTPnRE ) and we will be happy to help!**
+**Your Done Now The Client Should be working as expected! If Not Please Join this discord ( https://discord.gg/8JtwkTPnRE ) and we will be happy to help!**
+
 ## Setup
 
 ### Install Stable Version
