@@ -8,7 +8,7 @@
 <div style="display: grid; place-items: center;">
     <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/SatanaelCode/DarkClient?color=black"> <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/SatanaelCode/DarkClient?color=black&label=Developers">
 <img alt="GitHub contributors" src="https://img.shields.io/github/v/release/SatanaelCode/DarkClient?display_name=tag&include_prereleases&color=black">
-    
+    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/Satanaelcode/DarkClient/total?color=black">
 
 </div>
 
