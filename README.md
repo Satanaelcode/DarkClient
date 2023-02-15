@@ -12,7 +12,7 @@
 
 </div>
 
-## Installation (FROM THE DISCORD):
+## Installation:
 
 **- Install The .jar**
 
