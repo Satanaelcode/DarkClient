@@ -17,15 +17,20 @@ import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.net.InetSocketAddress;
+import java.net.SocketAddress;
 
 @Mixin(ClientConnection.class)
-public class ClientConnectionMixin {
+public abstract class ClientConnectionMixin {
+    @Shadow
+    public abstract SocketAddress getAddress();
+
     @Inject(method = "handlePacket", at = @At("HEAD"), cancellable = true)
     private static <T extends PacketListener> void onHandlePacket(Packet<T> packet, PacketListener listener, CallbackInfo info) {
         if (MeteorClient.EVENT_BUS.post(PacketEvent.Receive.get(packet)).isCancelled()) info.cancel();
