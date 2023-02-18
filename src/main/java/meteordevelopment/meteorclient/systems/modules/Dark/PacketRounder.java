@@ -21,7 +21,7 @@ public class PacketRounder extends Module {
     }
 
     @EventHandler
-    private void onpacket(PacketEvent.Receive event){
+    private void onpacket(PacketEvent.Sent event){
         if (event.packet instanceof PlayerMoveC2SPacket packet){
             if (packet instanceof PlayerMoveC2SPacket.PositionAndOnGround || packet instanceof PlayerMoveC2SPacket.Full){
                 PlayerMoveAccessor accessor = (PlayerMoveAccessor) packet;
