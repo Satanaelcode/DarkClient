@@ -594,6 +594,7 @@ public class Modules extends System<Modules> {
         add(new SoundLocator());
         add(new RainbowArmor());
         add(new AntiScreen());
+        add(new PacketRounder());
     }
 
     public static class ModuleRegistry extends SimpleRegistry<Module> {

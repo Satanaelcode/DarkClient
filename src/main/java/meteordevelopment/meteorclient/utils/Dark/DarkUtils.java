@@ -129,4 +129,11 @@ public class DarkUtils {
         }
         return color;
     }
+
+    public static double roundCoordinates(double coord) {
+        coord = Math.round(coord * 100.0) / 100.0;
+        coord = Math.nextAfter(coord, coord + Math.signum(coord));
+        if ((int) (coord * 1000.0) % 10.0 != 0.0) coord = Math.ceil(coord);
+        return coord;
+    }
 }
