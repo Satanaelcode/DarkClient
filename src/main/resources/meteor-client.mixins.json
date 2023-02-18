@@ -167,7 +167,6 @@
     "defaultRequire": 1
   },
   "mixins": [
-    "AntiHumanMixin",
     "accessor.PlayerMoveAccessor",
     "accessor.VehicleMoveAccessor"
   ]
