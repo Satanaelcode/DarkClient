@@ -20,6 +20,7 @@ import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
 import meteordevelopment.meteorclient.systems.System;
 import meteordevelopment.meteorclient.systems.Systems;
+import meteordevelopment.meteorclient.systems.modules.dark.*;
 import meteordevelopment.meteorclient.systems.modules.combat.*;
 import meteordevelopment.meteorclient.systems.modules.misc.*;
 import meteordevelopment.meteorclient.systems.modules.misc.swarm.Swarm;
@@ -566,6 +567,32 @@ public class Modules extends System<Modules> {
         add(new Spam());
         add(new ServerSpoof());
         add(new InventoryTweaks());
+    }
+
+    private void initDark(){
+        add(new AutoL());
+        add(new BowVelocity());
+        add(new chatfinterbypass());
+        add(new Fireball());
+        add(new GhostBlockFly());
+        add(new GMNotifier());
+        add(new InstaMine());
+        add(new FileSpammer());
+        add(new LogFlooder());
+        add(new MessageLagger());
+        add(new NoChatFormatting());
+        add(new Panic());
+        add(new SkinBlink());
+        add(new SpamBypass());
+        add(new SpamKiller());
+        add(new WorldGuardBypass());
+        add(new InfAura());
+        add(new NotifierPlus());
+        add(new NoClearChat());
+        add(new SoundLocator());
+        add(new RainbowArmor());
+        add(new AntiScreen());
+        add(new PacketRounder());
     }
 
     public static class ModuleRegistry extends SimpleRegistry<Module> {
