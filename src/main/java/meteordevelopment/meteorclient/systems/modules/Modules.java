@@ -90,6 +90,7 @@ public class Modules extends System<Modules> {
         initRender();
         initWorld();
         initMisc();
+        initDark();
     }
 
     @Override

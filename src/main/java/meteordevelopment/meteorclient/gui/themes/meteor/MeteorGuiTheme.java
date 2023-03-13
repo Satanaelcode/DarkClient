@@ -32,7 +32,6 @@ import meteordevelopment.meteorclient.utils.render.color.Color;
 import meteordevelopment.meteorclient.utils.render.color.SettingColor;
 
 import static meteordevelopment.meteorclient.MeteorClient.mc;
-import static net.minecraft.client.MinecraftClient.IS_SYSTEM_MAC;
 
 public class MeteorGuiTheme extends GuiTheme {
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
@@ -48,40 +47,40 @@ public class MeteorGuiTheme extends GuiTheme {
     // General
 
     public final Setting<Double> scale = sgGeneral.add(new DoubleSetting.Builder()
-            .name("scale")
-            .description("Scale of the GUI.")
-            .defaultValue(1)
-            .min(0.75)
-            .sliderRange(0.75, 4)
-            .onSliderRelease()
-            .onChanged(aDouble -> {
-                if (mc.currentScreen instanceof WidgetScreen) ((WidgetScreen) mc.currentScreen).invalidate();
-            })
-            .build()
+        .name("scale")
+        .description("Scale of the GUI.")
+        .defaultValue(1)
+        .min(0.75)
+        .sliderRange(0.75, 4)
+        .onSliderRelease()
+        .onChanged(aDouble -> {
+            if (mc.currentScreen instanceof WidgetScreen) ((WidgetScreen) mc.currentScreen).invalidate();
+        })
+        .build()
     );
 
     public final Setting<AlignmentX> moduleAlignment = sgGeneral.add(new EnumSetting.Builder<AlignmentX>()
-            .name("module-alignment")
-            .description("How module titles are aligned.")
-            .defaultValue(AlignmentX.Center)
-            .build()
+        .name("module-alignment")
+        .description("How module titles are aligned.")
+        .defaultValue(AlignmentX.Center)
+        .build()
     );
 
     public final Setting<Boolean> categoryIcons = sgGeneral.add(new BoolSetting.Builder()
-            .name("category-icons")
-            .description("Adds item icons to module categories.")
-            .defaultValue(false)
-            .build()
+        .name("category-icons")
+        .description("Adds item icons to module categories.")
+        .defaultValue(false)
+        .build()
     );
 
     public final Setting<Boolean> hideHUD = sgGeneral.add(new BoolSetting.Builder()
-            .name("hide-HUD")
-            .description("Hide HUD when in GUI.")
-            .defaultValue(false)
-            .onChanged(v -> {
-                if (mc.currentScreen instanceof WidgetScreen) mc.options.hudHidden = v;
-            })
-            .build()
+        .name("hide-HUD")
+        .description("Hide HUD when in GUI.")
+        .defaultValue(false)
+        .onChanged(v -> {
+            if (mc.currentScreen instanceof WidgetScreen) mc.options.hudHidden = v;
+        })
+        .build()
     );
 
     // Colors
@@ -104,11 +103,11 @@ public class MeteorGuiTheme extends GuiTheme {
     // Background
 
     public final ThreeStateColorSetting backgroundColor = new ThreeStateColorSetting(
-            sgBackgroundColors,
-            "background",
-            new SettingColor(20, 20, 20, 200),
-            new SettingColor(30, 30, 30, 200),
-            new SettingColor(40, 40, 40, 200)
+        sgBackgroundColors,
+        "background",
+        new SettingColor(20, 20, 20, 200),
+        new SettingColor(30, 30, 30, 200),
+        new SettingColor(40, 40, 40, 200)
     );
 
     public final Setting<SettingColor> moduleBackground = color(sgBackgroundColors, "module-background", "Color of module background when active.", new SettingColor(50, 50, 50));
@@ -116,11 +115,11 @@ public class MeteorGuiTheme extends GuiTheme {
     // Outline
 
     public final ThreeStateColorSetting outlineColor = new ThreeStateColorSetting(
-            sgOutline,
-            "outline",
-            new SettingColor(0, 0, 0),
-            new SettingColor(10, 10, 10),
-            new SettingColor(20, 20, 20)
+        sgOutline,
+        "outline",
+        new SettingColor(0, 0, 0),
+        new SettingColor(10, 10, 10),
+        new SettingColor(20, 20, 20)
     );
 
     // Separator
@@ -132,21 +131,21 @@ public class MeteorGuiTheme extends GuiTheme {
     // Scrollbar
 
     public final ThreeStateColorSetting scrollbarColor = new ThreeStateColorSetting(
-            sgScrollbar,
-            "Scrollbar",
-            new SettingColor(30, 30, 30, 200),
-            new SettingColor(40, 40, 40, 200),
-            new SettingColor(50, 50, 50, 200)
+        sgScrollbar,
+        "Scrollbar",
+        new SettingColor(30, 30, 30, 200),
+        new SettingColor(40, 40, 40, 200),
+        new SettingColor(50, 50, 50, 200)
     );
 
     // Slider
 
     public final ThreeStateColorSetting sliderHandle = new ThreeStateColorSetting(
-            sgSlider,
-            "slider-handle",
-            new SettingColor(130, 0, 255),
-            new SettingColor(140, 30, 255),
-            new SettingColor(150, 60, 255)
+        sgSlider,
+        "slider-handle",
+        new SettingColor(130, 0, 255),
+        new SettingColor(140, 30, 255),
+        new SettingColor(150, 60, 255)
     );
 
     public final Setting<SettingColor> sliderLeft = color(sgSlider, "slider-left", "Color of slider left part.", new SettingColor(100,35,170));
@@ -173,10 +172,10 @@ public class MeteorGuiTheme extends GuiTheme {
 
     private Setting<SettingColor> color(SettingGroup group, String name, String description, SettingColor color) {
         return group.add(new ColorSetting.Builder()
-                .name(name + "-color")
-                .description(description)
-                .defaultValue(color)
-                .build());
+            .name(name + "-color")
+            .description(description)
+            .defaultValue(color)
+            .build());
     }
     private Setting<SettingColor> color(String name, String description, SettingColor color) {
         return color(sgColors, name, description, color);
@@ -358,13 +357,7 @@ public class MeteorGuiTheme extends GuiTheme {
 
     @Override
     public double scale(double value) {
-        double scaled = value * scale.get();
-
-        if (IS_SYSTEM_MAC) {
-            scaled /= (double) mc.getWindow().getWidth() / mc.getWindow().getFramebufferWidth();
-        }
-
-        return scaled;
+        return value * scale.get();
     }
 
     @Override

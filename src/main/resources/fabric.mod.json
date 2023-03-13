@@ -1,13 +1,11 @@
 {
   "schemaVersion": 1,
-  "name": "Meteor Client",
-  "id": "meteor-client",
+  "name": "Dark Client",
+  "id": "dark-client",
   "version": "${version}",
   "description": "Based utility mod.",
   "authors": [
-    "MineGame159",
-    "squidoodly",
-    "seasnail"
+    "YourDad"
   ],
   "contact": {
     "homepage": "https://meteorclient.com",
@@ -32,9 +30,9 @@
   ],
   "accessWidener": "meteor-client.accesswidener",
   "custom": {
-    "meteor-client:devbuild": "${devbuild}",
-    "meteor-client:color": "145,61,226",
-    "meteor-client:commit": "${commit}",
+    "dark-client:devbuild": "${devbuild}",
+    "dark-client:color": "145,61,226",
+    "dark-client:commit": "${commit}",
     "modmenu": {
       "links": {
         "modmenu.discord": "https://meteorclient.com/discord"
@@ -50,6 +48,7 @@
     "optifabric": "*",
     "feather": "*",
     "origins": "*",
-    "wurst": "*"
+    "wurst": "*",
+    "meteor-client": "*"
   }
 }
